@@ -10,7 +10,7 @@ let userName,
 currentYear = new Date();
 userName = prompt('Enter your name:').trim();
 userSurname = prompt('Enter your surname:').trim();
-userEmail = prompt('Enter your email:').trim().toLocaleLowerCase();
+userEmail = prompt('Enter your email:').replaceAll(' ', '').toLocaleLowerCase();
 
 if (!userEmail.includes('@')) {
     flagEmail = `not valid email <b>${userEmail}</b> (symbol @ not exist)`;
@@ -28,12 +28,16 @@ do {
     if (counter > 0) {
         alert('Your date of birth is wrong, please, try again');
     }
-    birthYear = +prompt('Enter your birth year:');
+    birthYear = parseInt(prompt('Enter your birth year:').replaceAll(' ', ''));
     counter++;
 } while ((birthYear > currentYear.getFullYear()) || (birthYear < 1900))
 
 age = currentYear.getFullYear() - birthYear;
 
-document.write(`<p>Full name: ${userSurname} ${userName}</p>
-<p>Email: ${userEmail}</p>
-<p>Age: ${age}</p>`);
+document.write(`
+    <ul>
+        <li>Full name: ${userName} ${userSurname}</li>
+        <li>Email: ${userEmail}</li>
+        <li>Age: ${age}</li>
+    </ul>
+`);

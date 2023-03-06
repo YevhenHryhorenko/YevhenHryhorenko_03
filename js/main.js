@@ -12,7 +12,7 @@ userName = prompt('Enter your name:', '').trim();
 userName = (userName[0].toUpperCase() + userName.slice(1).toLowerCase());
 userSurname = prompt('Enter your surname:').trim();
 userSurname = (userSurname[0].toUpperCase() + userSurname.slice(1).toLowerCase());
-userEmail = prompt('Enter your email:').replaceAll(' ', '').toLocaleLowerCase();
+userEmail = prompt('Enter your email:').replaceAll(' ', '').toLocaleLowerCase().replaceAll().toLowerCase();
 
 if (!userEmail.includes('@')) {
     flagEmail = `not valid email <b>${userEmail}</b> (symbol @ not exist)`;
